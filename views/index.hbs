@@ -1,0 +1,109 @@
+<div class="float-left">
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
+<a class="btn btn-warning" href="/" role="button">Back Home</a>   
+<a class="btn btn-warning" href="/new" role="button">New Song</a> 
+<a class="btn btn-warning" href="/singer" role="button">Singers</a> 
+
+
+
+
+
+
+
+</div>
+{{#each errors}}
+    <div class="alert alert-danger">
+        {{this}}
+    </div>
+    {{/each}}
+
+    {{!-- <div class="float-right">
+        <form>
+            <div class="form-group">
+                <input class="form-control" type="text" name="search" value="Search by first name">
+            
+           
+            <button type="submit" class="btn btn-primary float-right">Search</button>
+         </div>
+        </form>
+    </div> --}}
+    
+
+<form class="form-inline float-right">
+        <div class="form-group sm-1">
+            <input class="form-control sm-2" type="text" name="filter" placeholder="Search by Keyword">
+        </div>
+        <button type="submit" class="btn btn-warning">Search</button>
+    </form>
+    
+   <!-- Example split danger button -->
+
+    
+    <table class="table" data-toggle="table" data-sortable="true" >
+    <thead class="bg-info">
+        <tr class="bg-info">
+           
+         <th data-sortable="true">
+            {{#if songNameAsc}}
+            <a href="?sort=name&order=asc" style="text-decoration:none;color:aliceblue;">Song Name<i class="fas fa-sort"></i></a>
+                {{else}}
+                        <a href="?sort=name&order=desc" style="text-decoration:none;color:aliceblue;">Song Name<i class="fas fa-sort"></i></a>
+    {{/if}}
+       
+        
+        </th>
+        <th data-sortable="true">
+            {{#if ratingAsc}}
+            <a href="?sort=rating&order=asc" style="text-decoration:none;color:aliceblue;">Rating<i class="fas fa-sort"></i></a>
+            {{else}}
+                    <a href="?sort=rating&order=desc" style="text-decoration:none;color:aliceblue;">Rating<i class="fas fa-sort"></i></a>
+    {{/if}}
+           
+        
+        </th>
+        <th data-sortable="true" >
+            {{#if artistNameAsc}}
+            <a href="?sort=artistName&order=asc" style="text-decoration:none;color:aliceblue;">Artist Name<i class="fas fa-sort"></i></a>
+            {{else}}
+            <a href="?sort=artistName&order=desc" style="text-decoration:none;color:aliceblue;">Artist Name<i class="fas fa-sort"></i></a>
+            {{/if}}
+            
+        
+        </th>
+       
+
+         <th data-sortable="true">
+            {{#if publishYearAsc}}
+            <a href="?sort=publish_year&order=asc" style="text-decoration:none;color:aliceblue;">Release<i class="fas fa-sort"></i></a>
+                {{else}}
+                        <a href="?sort=publish_year&order=desc" style="text-decoration:none;color:aliceblue;">Release<i class="fas fa-sort"></i></a>
+    {{/if}}
+       
+        
+        </th>
+    
+        </tr>
+    </thead>
+        {{#each rows}}
+        <tr class="bg-info">
+            
+            <td>{{this.name}}</td>
+            <td>{{this.rating}}</td>
+            
+            <td>{{this.artist_name}}</td>
+            <td>{{this.publish_year}}</td>
+
+        
+           
+
+            <td><a href="/song/{{this.id}}/edit" role="button" class="btn btn-success">Edit</a></td>
+            <td><a href="/song/{{this.id}}" role="button" class="btn btn-warning">View</a></td>
+            <td><a href="/song/{{this.id}}/delete" role="button" class="btn btn-danger" >Delete</a></td>
+
+        </tr>
+        
+        {{/each}}
+    </table>
+    
+    

@@ -1,0 +1,32 @@
+<div class="float-left">
+    <h1>{{song.name}}</h1>
+    
+<a class="btn btn-warning" href="/" role="button">Back Home</a>   
+<a class="btn btn-warning" href="/new">New Song</a> 
+<a href="/song/{{song.id}}/edit" role="button" class="btn btn-success">Edit</a>
+<a href="/song/{{song.id}}/delete" role="button" class="btn btn-danger" >Delete</a>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+        
+            <img src="/images/{{song.file}}" alt="pic">
+            
+    </div>
+    
+
+            {{#each rows}}
+                <tr>
+                    <br>
+                    <td><h2>Artist:</h2><h3>{{this.artist_name}}</h3></td><br>
+                    <td><h2>Rating:{{this.rating}}</h2></td><br>
+                
+                    <td><h2>Release:{{this.publish_year}}</h2></td><br>
+                    <td><h2>Know the artist<br></h2><h3>{{this.artist_story}}</h3></td><br>
+
+                </tr>
+                {{/each}}
+       
+</div>

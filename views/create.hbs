@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Add your favorite song</h1>
+    {{#each errors}}
+    <div class="alert alert-danger">
+        {{this}}
+    </div>
+    {{/each}}
+    <form method="post">
+        <div class="form-group">
+            <label for="artistName">Artist Name</label>
+            <select class="custom-select" name="artist_id">
+                <option selected>Choose</option>
+                {{#each artists}}
+    <option value="{{this.id}}">{{this.artist_name}}</option>
+  {{/each}}
+               
+
+
+</select>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input class="form-control" id="rating" name="rating" />
+        </div>
+        <div class="form-group">
+            <label for="songName">Song Name</label>
+            <input class="form-control" id="songName" name="songName" />
+        </div>
+        <div class="form-group">
+            <label for="release">Release Date</label>
+            <input class="form-control" id="release" name="release" />
+        </div>
+        
+        <button class="btn btn-warning" type="submit">Submit</button>
+    </form>
+</div>

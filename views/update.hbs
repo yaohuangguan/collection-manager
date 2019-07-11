@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Update {{song.name}}</h1>
+    {{#each errors}}
+    <div class="alert alert-danger">
+        {{this}}
+    </div>
+    {{/each}}
+    <form method="POST">
+        <div class="form-group">
+            <label for="artistName">Artist Name</label>
+            <select class="custom-select" name="artist_id">
+                <option>Choose</option>
+                {{#each artists}}
+                {{#if this.selected}}
+    <option value="{{this.id}}" selected>{{this.artist_name}}</option>
+    {{else}}
+    <option value="{{this.id}}" >{{this.artist_name}}</option>
+    {{/if}}
+  {{/each}}
+               
+
+
+</select>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input class="form-control" id="rating" name="rating" value="{{song.rating}}" />
+        </div>
+        <div class="form-group">
+            <label for="songName">Song Name</label>
+            <input class="form-control" id="songName" name="songName" value="{{song.name}}" />
+        </div>
+        <div class="form-group">
+            <label for="release">Release Date</label>
+            <input class="form-control" id="release" name="release" value="{{song.publish_year}}"/>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      
+    <form action="/song/{{song.id}}/upload" method="post" enctype="multipart/form-data">
+  <label>Photo: </label>
+  <input type="file" name="file" />
+  <button type="submit" class="btn btn-success">UPLOAD</button>
+</form>
+</div>

@@ -1,0 +1,50 @@
+
+<div class="container">
+    <h1>Singer Page</h1>
+    {{#each errors}}
+    <div class="alert alert-danger">
+        {{this}}
+    </div>
+    {{/each}}
+<a class="btn btn-warning" href="/newsinger" role="button">New Singer</a> 
+<a class="btn btn-warning" href="/" role="button">Back Home</a>   
+
+
+ 
+  <table class="table" data-toggle="table" data-sortable="true" >
+    <thead class="bg-info">
+        <tr class="bg-info">
+           
+        <th data-sortable="true" >
+            {{#if artistNameAsc}}
+            <a href="?sort=artistName&order=asc" style="text-decoration:none;color:aliceblue;">Artist Name<i class="fas fa-sort"></i></a>
+            {{else}}
+            <a href="?sort=artistName&order=desc" style="text-decoration:none;color:aliceblue;">Artist Name<i class="fas fa-sort"></i></a>
+            {{/if}}
+            
+        
+        </th>
+        
+        
+
+         <th>Description</th>
+        </tr>
+    </thead>
+ {{#each rows}}
+        <tr class="bg-info">
+            
+            <td>{{this.artist_name}}</td>
+            <td>{{this.artist_story}}</td>
+            
+
+        
+           
+
+            <td><a href="/singer/{{this.id}}/edit" role="button" class="btn btn-success">Edit</a></td>
+            
+            <td><a href="/singer/{{this.id}}/delete" role="button" class="btn btn-danger" >Delete</a></td>
+
+        </tr>
+        
+        {{/each}}
+    </table>
